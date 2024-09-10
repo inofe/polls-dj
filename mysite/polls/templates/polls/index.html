@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration:none;
+            border-bottom: 1px solid white;
+            padding: 10px;
+            color: white;
+        }
+        ul{
+            list-style-type:decimal;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .main{
+            text-align: center  ;
+        }
+        .container {
+            background-color: brown;
+            color: white;
+            min-height: 100vh;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>well cum</h1>
+        <div class="container">
+            {% if latest_question_list %}
+            <ul>
+                {% for question in latest_question_list %}
+                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No polls are available.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>
